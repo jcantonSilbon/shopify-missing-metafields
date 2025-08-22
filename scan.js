@@ -246,7 +246,7 @@ async function sendReportEmail(filePath, total, counts) {
         `Adjunto: ${filename}`,
         "Acción: rellenar los metafields indicados en el Excel.",
         "",
-        "Frecuencia: viernes a las 12:19 (Europe/Madrid).",
+        "Frecuencia: lunes a las 09:00 (Europe/Madrid).",
         `Generado: ${when}`
     ].join("\n");
 

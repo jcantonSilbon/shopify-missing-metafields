@@ -8,6 +8,24 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json()); // importante
 
+
+app.get("/", (_req, res) => {
+  res.type("text/plain").send(
+    "shopify-missing-metafields ✅\n\nEndpoints:\n  GET  /health\n  GET  /scan\n  POST /scan\n"
+  );
+});
+
+app.get("/scan", async (_req, res) => {
+  try {
+    const result = await scan();
+    res.json({ ok: true, ...result });
+  } catch (err) {
+    console.error("Scan error:", err);
+    res.status(500).json({ ok: false, error: err?.message || "error" });
+  }
+});
+
+
 // ping
 app.get("/health", (_req, res) => res.json({ ok: true }));
 

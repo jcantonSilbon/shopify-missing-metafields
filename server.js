@@ -48,7 +48,7 @@ app.listen(port, () => console.log(`🚀 Server running on http://localhost:${po
 // ---- CRON semanal: lunes 09:00 Europe/Madrid ----
 let isRunning = false;
 cron.schedule(
-  "19 12 * * 5",
+  "29 12 * * 5",
   async () => {
     if (isRunning) {
       console.log("⏭️  Scan saltado: ya hay uno en curso");
